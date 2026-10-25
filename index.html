@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MANGA WORLD | Монгол</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #101116;
+      color: white;
+    }
+
+    header {
+      background: #191a23;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #343541;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #ff659e;
+      font-size: 25px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+    }
+
+    .hero {
+      padding: 55px 8%;
+      background: linear-gradient(120deg, #30203e, #171923);
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #c5c5d0;
+    }
+
+    input {
+      padding: 13px;
+      margin-top: 15px;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #555;
+      border-radius: 8px;
+      background: #252631;
+      color: white;
+    }
+
+    main {
+      padding: 30px 8%;
+    }
+
+    .manga-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1d1e28;
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid #30313e;
+    }
+
+    .cover {
+      height: 180px;
+      border-radius: 8px;
+      background: linear-gradient(145deg, #773b85, #24243e);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 42px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #b8b8c7;
+      font-size: 14px;
+    }
+
+    .tag {
+      color: #ff8ab5;
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 25px;
+      text-align: center;
+      color: #aaa;
+      border-top: 1px solid #30313e;
+    }
+
+    @media (max-width: 500px) {
+      header {
+        padding: 18px;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 12px;
+      }
+
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      main {
+        padding: 25px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>MANGA WORLD</h1>
+    <nav>
+      <a href="#home">Нүүр</a>
+      <a href="#manga">Манга</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h2>Өөрийн манга ертөнцөд тавтай морил!</h2>
+    <p>Монгол хэл дээрх манга, манхвагийн танилцуулга.</p>
+    <input
+      type="search"
+      id="search"
+      placeholder="Манга хайх..."
+      aria-label="Манга хайх"
+    >
+  </section>
+
+  <main id="manga">
+    <h2>📚 Санал болгох бүтээлүүд</h2>
+
+    <div class="manga-list" id="mangaList">
+
+      <article class="card">
+        <div class="cover">⚔️</div>
+        <h3>Shadow Legend</h3>
+        <p>Нууцлаг ертөнц дэх адал явдал.</p>
+        <span class="tag">Fantasy · Action</span>
+      </article>
+
+      <article class="card">
+        <div class="cover">🌙</div>
+        <h3>Moonlight</h3>
+        <p>Сарны гэрэл дор өрнөх түүх.</p>
+        <span class="tag">Drama · Fantasy</span>
+      </article>
+
+      <article class="card">
+        <div class="cover">🔥</div>
+        <h3>Crimson Soul</h3>
+        <p>Хүч чадлаа нээх залуугийн түүх.</p>
+        <span class="tag">Action · Adventure</span>
+      </article>
+
+    </div>
+  </main>
+
+  <footer>
+    © 2026 MANGA WORLD · Монгол манга сонирхогчдод
+  </footer>
+
+  <script>
+    const search = document.getElementById("search");
+    const cards = document.querySelectorAll(".card");
+
+    search.addEventListener("input", function () {
+      const query = search.value.toLowerCase();
+
+      cards.forEach(function (card) {
+        card.style.display = card.textContent
+          .toLowerCase()
+          .includes(query) ? "" : "none";
+      });
+    });
+  </script>
+
+</body>
+</html>
